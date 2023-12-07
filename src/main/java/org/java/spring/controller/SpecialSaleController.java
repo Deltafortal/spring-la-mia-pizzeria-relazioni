@@ -27,19 +27,23 @@ public class SpecialSaleController {
 	private SpecialSaleService specialSaleService;
 	
 	
+	
+	//Create Sale
 	@GetMapping("/pizza/specialSale")
 	public String getSpecialSale(Model model) {
 		
 		List<Pizza> pizza = pizzaService.findAll();
 		model.addAttribute("pizza", pizza);
 		
-		List<SpecialSale> specialSale = specialSaleService.findAll();
+		SpecialSale specialSale = new SpecialSale();
 		model.addAttribute("specialSale", specialSale);
 		
 		return "special-sale-form";
 	}
 	
 	
+	
+	//Store Sale
 	@PostMapping("/pizza/specialSale")
 	public String storeSpecialSale(@ModelAttribute PizzaSpecialSaleDTO pizzaSpecialSaleDTO) {
 		
@@ -55,6 +59,8 @@ public class SpecialSaleController {
 	}
 	
 	
+	
+	
 	//Edit
 	@GetMapping("/pizza/specialSale/{id}")
 	public String editSpecialSale(Model model, @PathVariable int id) {
@@ -68,6 +74,8 @@ public class SpecialSaleController {
 		
 		return "special-sale-form";
 	}
+	
+	
 	
 	
 	//Update

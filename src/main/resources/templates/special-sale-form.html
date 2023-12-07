@@ -27,13 +27,13 @@
 			</select>
 			
 			<label for="sale-title" class="form-label">Nome offerta</label>
-			<input type="text" th:field="${specialSale.title}" id="sale-title" name="title">				
+			<input type="text"  th:field="${specialSale.title}" id="sale-title" name="title">				
 			
 			<label for="sale-start" class="form-label">Data di inizio</label>
-			<input type="text"  id="sale-start" name="starting_date">
+			<input type="text" th:field="${specialSale.startingDate}" id="sale-start" name="starting_date">
 			
 			<label for="sale-end" class="form-label">Data di fine</label>
-			<input type="text"  id="sale-end" name="end_date">
+			<input type="text" th:field="${specialSale.endDate}"  id="sale-end" name="end_date">
 			
 			<input type="submit" value="Invia">
 		</form>
