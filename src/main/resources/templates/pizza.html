@@ -25,6 +25,24 @@
 		<p th:text="${pizza.descrizione}"></p>
 		<h4 th:text="'Prezzo: ' + ${pizza.price} + '€'"></h4>
 		
+		<h4 class="mt-5 mb-3">Offerte Speciali: </h4>
+		<a href="/pizza/specialSale" class="btn btn-success mb-5">Crea una nuova offerta</a>
+		
+		<!-- Cards -->
+		<div class="row mb-5" th:object="${pizza}">
+		  <div class="col-sm-3 mb-3 mb-sm-0">
+			  
+		    <div th:each="specialSale : ${pizza.specialSale}" class="card">
+		      <div class="card-body">
+		        <h5 class="card-title">[[${specialSale.title}]]</h5>
+		        <p class="card-text">Data di inizio: [[${specialSale.startingDate}]]</p>
+		        <p class="card-text">Data di fine: [[${specialSale.endDate}]] </p>
+		      </div>
+		    </div>
+		    
+		  </div>
+		</div>
+		
 	</div>
 	
 

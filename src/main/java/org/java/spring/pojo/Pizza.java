@@ -1,14 +1,15 @@
 package org.java.spring.pojo;
 
+import java.util.List;
+
 import org.hibernate.validator.constraints.Length;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.Digits;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
 
 
 @Entity
@@ -28,6 +29,9 @@ public class Pizza {
 	
 	@NotNull
 	private double price;
+	
+	@OneToMany(mappedBy = "pizza")
+	private List<SpecialSale> specialSale;
 	
 	
 	//Constructor 
@@ -89,6 +93,14 @@ public class Pizza {
 		this.price = price;
 	}
 	
+	
+	//Relation Functions
+	public List<SpecialSale> getSpecialSale() {
+		return specialSale;
+	}
+	public void setSpecialSale(List<SpecialSale> specialSale) {
+		this.specialSale = specialSale;
+	}
 	
 	
 	
