@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+
+	<!-- Bootstrap CSS -->
+	<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css}"/>
+	
+</head>
+<body>
+	
+	<!-- Header -->
+	<header th:replace="fragments/header :: header('Pizzeria da Aldo')">
+			
+	</header>
+	
+	<div class="container mt-5">
+		
+		<h2>Offerte speciali</h2>
+		
+		<form method="POST" >
+			<select name="pizza_id">
+				<option th:each="pizza : ${pizza}" th:object="${pizza}" th:value="${pizza.id}">
+					[[${pizza.nome}]]
+				</option>
+			</select>
+			
+			<input type="text" name="name" >
+			<input type="submit" value="SPECIALSALE">
+		</form>
+	</div>
+	
+</body>
+</html>
