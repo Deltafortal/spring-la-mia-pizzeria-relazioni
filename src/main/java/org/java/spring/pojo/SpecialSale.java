@@ -41,6 +41,16 @@ public class SpecialSale {
 	
 	
 	
+	//Id Functions
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	
+	
 	//Title Functions
 	public String getTitle() {
 		return title;

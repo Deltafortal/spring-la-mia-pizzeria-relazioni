@@ -37,6 +37,7 @@
 		        <h5 class="card-title">[[${specialSale.title}]]</h5>
 		        <p class="card-text">Data di inizio: [[${specialSale.startingDate}]]</p>
 		        <p class="card-text">Data di fine: [[${specialSale.endDate}]] </p>
+		        <a th:href="@{/pizza/specialSale/{id} (id=${specialSale.id})}" class="btn btn-primary">Modifica</a>
 		      </div>
 		    </div>
 		    

@@ -19,13 +19,22 @@
 		
 		<h2>Offerte speciali</h2>
 		
-		<form method="POST" >
+		<form id="sale-form" method="POST" >
 			<select name="pizza_id">
 				<option th:each="pizza : ${pizza}" th:value="${pizza.id}">
 					[[${pizza.nome}]]
 				</option>
 			</select>
-			<input type="text" name="title" >
+			
+			<label for="sale-title" class="form-label">Nome offerta</label>
+			<input type="text" th:field="${specialSale.title}" id="sale-title" name="title">				
+			
+			<label for="sale-start" class="form-label">Data di inizio</label>
+			<input type="text"  id="sale-start" name="starting_date">
+			
+			<label for="sale-end" class="form-label">Data di fine</label>
+			<input type="text"  id="sale-end" name="end_date">
+			
 			<input type="submit" value="Invia">
 		</form>
 	</div>
