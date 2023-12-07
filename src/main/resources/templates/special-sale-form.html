@@ -21,13 +21,12 @@
 		
 		<form method="POST" >
 			<select name="pizza_id">
-				<option th:each="pizza : ${pizza}" th:object="${pizza}" th:value="${pizza.id}">
+				<option th:each="pizza : ${pizza}" th:value="${pizza.id}">
 					[[${pizza.nome}]]
 				</option>
 			</select>
-			
-			<input type="text" name="name" >
-			<input type="submit" value="SPECIALSALE">
+			<input type="text" name="title" >
+			<input type="submit" value="Invia">
 		</form>
 	</div>
 	

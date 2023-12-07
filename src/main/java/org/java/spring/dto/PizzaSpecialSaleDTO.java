@@ -16,10 +16,10 @@ public class PizzaSpecialSaleDTO {
 	}
 	
 	
-	public String getNome() {
+	public String getTitle() {
 		return nome;
 	}
-	public void setNome(String nome) {
+	public void setTitle(String nome) {
 		this.nome = nome;
 	}
 }

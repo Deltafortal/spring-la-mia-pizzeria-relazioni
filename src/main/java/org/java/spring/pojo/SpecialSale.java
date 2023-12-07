@@ -29,12 +29,13 @@ public class SpecialSale {
 	//Constructor
 	public SpecialSale(){}
 	
-	public SpecialSale(String title, String startingDate, String endDate) {
+	public SpecialSale(String title, String startingDate, String endDate, Pizza pizza) {
 		
 		
 		setTitle(title);
 		setStartingDate(startingDate);
 		setEndDate(endDate);
+		setPizza(pizza);
 	}
 
 	
@@ -66,5 +67,14 @@ public class SpecialSale {
 	}
 	public void setEndDate(String endDate) {
 		this.endDate = endDate;
+	}
+	
+	
+	//pizza functions
+	public Pizza getPizza() {
+		return pizza;
+	}
+	public void setPizza(Pizza pizza) {
+		this.pizza = pizza;
 	}
 }
