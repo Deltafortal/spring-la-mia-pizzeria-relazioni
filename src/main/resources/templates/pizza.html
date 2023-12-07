@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Pizzeria da Aldo</title>
+
+	<!-- Bootstrap CSS -->
+	<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.2/css/bootstrap.min.css}"/>
+</head>
+<body>
+	
+	<!-- Header -->
+	<header th:replace="fragments/header :: header('Pizzeria da Aldo')">
+			
+	</header>
+	
+	
+	
+	<!-- Container -->
+	<div class="container text-center">
+		
+		<h2 class="mt-5" th:text="${pizza.nome}"></h2>
+		<img class="m-3" style="width: 400px" th:src="${pizza.url}" />
+		
+		<p th:text="${pizza.descrizione}"></p>
+		<h4 th:text="'Prezzo: ' + ${pizza.price} + '€'"></h4>
+		
+	</div>
+	
+
+</body>
+</html>
