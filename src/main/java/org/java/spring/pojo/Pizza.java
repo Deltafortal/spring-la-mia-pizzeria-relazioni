@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.hibernate.validator.constraints.Length;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -32,7 +33,7 @@ public class Pizza {
 	@NotNull
 	private double price;
 	
-	@OneToMany(mappedBy = "pizza")
+	@OneToMany(mappedBy = "pizza", cascade = CascadeType.ALL)
 	private List<SpecialSale> specialSale;
 	
 	
@@ -112,23 +113,17 @@ public class Pizza {
 	
 	
 	
-	//Ingredients functions
+	// Ingredients functions
 	public List<Ingredient> getIngredients() {
 		return ingredients;
 	}
-	
-	
 	public void setIngredients(List<Ingredient> ingredients) {
 		this.ingredients = ingredients;
 	}
-	
-	
 	public void setIngredients(Ingredient... ingredients) {	
 		setIngredients(Arrays.asList(ingredients));
 	}
-	
-	
-	public void clearCategories() {
+	public void clearIngredients() {
 		getIngredients().clear();
 	}
 	

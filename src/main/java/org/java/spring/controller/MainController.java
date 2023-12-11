@@ -3,8 +3,12 @@ package org.java.spring.controller;
 
 import java.util.List;
 
+import org.java.spring.pojo.Ingredient;
 import org.java.spring.pojo.Pizza;
+import org.java.spring.pojo.SpecialSale;
+import org.java.spring.serv.IngredientService;
 import org.java.spring.serv.PizzaService;
+import org.java.spring.serv.SpecialSaleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +28,11 @@ public class MainController {
 	@Autowired
 	private PizzaService pizzaService;
 	
+	@Autowired
+	private SpecialSaleService specialSaleService;
 	
+	@Autowired
+	private IngredientService ingredientService;
 	
 	
 	//********** Routes
@@ -77,8 +85,11 @@ public class MainController {
 	@GetMapping("/pizza/edit/{id}")
 	public String editPizza(Model model, @PathVariable int id) {
 		
+		List<Ingredient> ingredients = ingredientService.findAll();
 		Pizza pizza = pizzaService.findById(id);
+		
 		model.addAttribute("pizza", pizza);
+		model.addAttribute("ingredients", ingredients);
 		
 		return "pizza-form";
 	}
@@ -96,6 +107,13 @@ public class MainController {
 	public String deletePizza (@PathVariable int id) {
 		
 		Pizza pizza = pizzaService.findById(id);
+		
+		pizza.clearIngredients();
+		pizzaService.save(pizza);
+		
+		List<SpecialSale> specialSales = pizza.getSpecialSale();
+		specialSales.forEach(specialSaleService::delete);
+		
 		pizzaService.delete(pizza);
 		
 		return "redirect:/";

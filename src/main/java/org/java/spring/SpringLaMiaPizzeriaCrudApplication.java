@@ -42,16 +42,18 @@ public class SpringLaMiaPizzeriaCrudApplication implements CommandLineRunner{
 		Ingredient cipolla = new Ingredient("cipolla");
 		Ingredient salsiccia = new Ingredient("salsiccia");
 		Ingredient gorgonzola = new Ingredient("gorgonzola");
+		Ingredient pomodoro = new Ingredient("pomodoro");
 		
 		ingredientService.save(patate);
 		ingredientService.save(cipolla);
 		ingredientService.save(salsiccia);
 		ingredientService.save(gorgonzola);
+		ingredientService.save(pomodoro);
 		
 		
-		pizzaService.save(new Pizza("Pizza Margherita", "Una bellissima pizza margherita adatta a tutti grandi e piccoli", "https://upload.wikimedia.org/wikipedia/commons/c/c8/Pizza_Margherita_stu_spivack.jpg", 5.00));
+		pizzaService.save(new Pizza("Pizza Margherita", "Una bellissima pizza margherita adatta a tutti grandi e piccoli", "https://upload.wikimedia.org/wikipedia/commons/c/c8/Pizza_Margherita_stu_spivack.jpg", 5.00, pomodoro));
 		pizzaService.save(new Pizza("Pizza Mais e Ricotta", "Una pizza esotica  adatta ai veri degustatori, un pizzico di dolce misto col salato", "https://www.ricettedalmondo.it/images/foto-ricette/p/29294-pizza-mimosa.jpg", 7.00));
-		pizzaService.save(new Pizza("Pizza patate e cipolla", "Sicuramente devi avere dei gusti discutibili, ma in ogni caso da Pizzeria da Aldo sei libero di fare schif.. coff coff, di mangiare!", "https://www.youcookit.net/it/wp-content/uploads/2021/06/pizza-patate-cipolle-rosmarino-07.jpg", 6.00));
+		pizzaService.save(new Pizza("Pizza patate e cipolla", "Sicuramente devi avere dei gusti discutibili, ma in ogni caso da Pizzeria da Aldo sei libero di fare schif.. coff coff, di mangiare!", "https://www.youcookit.net/it/wp-content/uploads/2021/06/pizza-patate-cipolle-rosmarino-07.jpg", 6.00, patate, cipolla));
 		
 		
 		List<Pizza> pizzas = pizzaService.findAll();
