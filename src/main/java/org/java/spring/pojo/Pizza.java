@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotNull;
 
@@ -32,6 +33,10 @@ public class Pizza {
 	
 	@OneToMany(mappedBy = "pizza")
 	private List<SpecialSale> specialSale;
+	
+	
+	@ManyToMany
+	private List<Ingredient> ingredients;
 	
 	
 	//Constructor 
