@@ -2,7 +2,6 @@ package org.java.spring.pojo;
 
 import java.util.List;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,7 +19,7 @@ public class Ingredient {
 	private String title;
 	
 	
-	@ManyToMany(mappedBy = "ingredients", cascade = CascadeType.ALL)
+	@ManyToMany(mappedBy = "ingredients")
 	private List<Pizza> pizzas;
 	
 	
