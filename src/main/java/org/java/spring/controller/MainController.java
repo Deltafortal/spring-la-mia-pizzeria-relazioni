@@ -65,8 +65,10 @@ public class MainController {
 	public String createPizza(Model model) {
 		
 		Pizza pizza = new Pizza();
+		List<Ingredient> ingredients = ingredientService.findAll();
 		
 		model.addAttribute("pizza", pizza);
+		model.addAttribute("ingredients", ingredients);
 		
 		return "pizza-form";
 		
